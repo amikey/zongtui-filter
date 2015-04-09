@@ -11,11 +11,9 @@ package com.zongtui.filter.md5tree;
 
 import com.zongtui.filter.IFilter;
 import com.zongtui.filter.Page;
-import org.magicwerk.brownies.collections.GapList;
 
 import java.security.MessageDigest;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * ClassName: Md5TreeFilterImpl <br/>
@@ -27,15 +25,12 @@ import java.util.List;
  */
 public class Md5TreeFilterImpl implements IFilter {
 
-    List<HashSet<String>> setList = new GapList<HashSet<String>>();
+    HashSet<String> set = new HashSet<String>();
 
-    private int shareCount;
 
-    public Md5TreeFilterImpl(int shardCount, int shardNo) {
-        shareCount = shardCount;
-        for (int i = 0; i < shardCount; i++) {
-            setList.add(new HashSet(shardNo));
-        }
+
+    public Md5TreeFilterImpl(int shardNo) {
+        set = new HashSet(shardNo);
     }
 
     /**
@@ -50,14 +45,13 @@ public class Md5TreeFilterImpl implements IFilter {
     public float Similar(Page page) {
         float similarValue = 1;
         String url = MD5(page.getUrl());
-        int index = Math.abs(url.hashCode() % shareCount);
-        if (!setList.get(index).contains(url)) {
-            setList.get(index).add(url);
+
+        if (!set.contains(url)) {
+            set.add(url);
             similarValue = 0;
         }
         return similarValue;
     }
-
 
     public final static String MD5(String s) {
         char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

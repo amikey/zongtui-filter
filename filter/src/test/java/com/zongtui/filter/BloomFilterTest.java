@@ -29,7 +29,7 @@ public class BloomFilterTest {
     @Test
     public void testMemoryCost() throws Exception {
         int times = 10000000;
-        IFilter filter = new BloomFilterImpl(times, 0.005);
+        IFilter filter = new BloomFilterImpl(times, 0.1);
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
@@ -42,8 +42,8 @@ public class BloomFilterTest {
     @Ignore("long time")
     @Test
     public void testHitCorrect() throws Exception {
-        int times = 10000000;
-        IFilter filter = new BloomFilterImpl(times, 0.01);
+        int times = 1000000;
+        IFilter filter = new BloomFilterImpl(times, 0.1);
         int right = 0;
         int wrong = 0;
         int missCheck = 0;
