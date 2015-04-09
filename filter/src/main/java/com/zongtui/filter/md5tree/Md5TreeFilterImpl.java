@@ -83,11 +83,4 @@ public class Md5TreeFilterImpl implements IFilter {
             return null;
         }
     }
-
-
-    public static void main(String[] args) {
-        Page page = new Page("http://www.baidu.com", null);
-        IFilter filter = new Md5TreeFilterImpl(10, 1000000);
-        filter.Similar(page);
-    }
 }
