@@ -28,8 +28,9 @@ public interface IFilter {
 	 * @since JDK 1.7
 	 */
 	float Similar(Page page);
-	
-	
+
+
+
 
 
 
