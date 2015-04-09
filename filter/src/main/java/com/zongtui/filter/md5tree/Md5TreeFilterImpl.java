@@ -27,11 +27,14 @@ import java.util.List;
  */
 public class Md5TreeFilterImpl implements IFilter {
 
-    List<HashSet<String>> setList = new GapList<HashSet<String>>(10);
+    List<HashSet<String>> setList = new GapList<HashSet<String>>();
 
-    public Md5TreeFilterImpl() {
-        for (int i = 0; i < 100; i++) {
-            setList.add(new HashSet(100000));
+    private int shareCount;
+
+    public Md5TreeFilterImpl(int shardCount, int shardNo) {
+        shareCount = shardCount;
+        for (int i = 0; i < shardCount; i++) {
+            setList.add(new HashSet(shardNo));
         }
     }
 
@@ -47,7 +50,7 @@ public class Md5TreeFilterImpl implements IFilter {
     public float Similar(Page page) {
         float similarValue = 1;
         String url = MD5(page.getUrl());
-        int index = Math.abs(url.hashCode() % 100);
+        int index = Math.abs(url.hashCode() % shareCount);
         if (!setList.get(index).contains(url)) {
             setList.get(index).add(url);
             similarValue = 0;
@@ -84,7 +87,7 @@ public class Md5TreeFilterImpl implements IFilter {
 
     public static void main(String[] args) {
         Page page = new Page("http://www.baidu.com", null);
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5TreeFilterImpl(10, 1000000);
         filter.Similar(page);
     }
 }

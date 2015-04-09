@@ -11,7 +11,7 @@ public class Md5TreeFilterTest {
 
     @Test
     public void testFilter() throws Exception {
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5TreeFilterImpl(1,10000);
         Page page1 = new Page("a", null);
         Page page2 = new Page("b", null);
         float value = filter.Similar(page1);
@@ -29,7 +29,7 @@ public class Md5TreeFilterTest {
     @Test
     public void testMemoryCost() throws Exception {
         int times = 1000000;
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5TreeFilterImpl(1,1000000);
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
@@ -43,7 +43,7 @@ public class Md5TreeFilterTest {
     @Test
     public void testHitCorrect() throws Exception {
         int times = 1000000;
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5TreeFilterImpl(10,1000000);
         int right = 0;
         int wrong = 0;
         int missCheck = 0;
