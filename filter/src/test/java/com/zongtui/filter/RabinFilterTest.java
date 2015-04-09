@@ -1,6 +1,6 @@
 package com.zongtui.filter;
 
-import com.zongtui.filter.robin.RabinHashFilterImpl;
+import com.zongtui.filter.rabin.RabinHashFilterImpl;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class RabinFilterTest {
 
     @Test
     public void testFilter() throws Exception {
-        IFilter filter = new RabinHashFilterImpl(10);
+        IFilter filter = new RabinHashFilterImpl(10,3);
         Page page1 = new Page("a", null);
         Page page2 = new Page("b", null);
         float value = filter.Similar(page1);
@@ -29,7 +29,7 @@ public class RabinFilterTest {
     @Test
     public void testMemoryCost() throws Exception {
         int times = 1000000;
-        IFilter filter = new RabinHashFilterImpl(1000000);
+        IFilter filter = new RabinHashFilterImpl(1000000,20);
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
@@ -43,7 +43,7 @@ public class RabinFilterTest {
     @Test
     public void testHitCorrect() throws Exception {
         int times =500000;
-        IFilter filter = new RabinHashFilterImpl(500000);
+        IFilter filter = new RabinHashFilterImpl(500000,18);
         int right = 0;
         int wrong = 0;
         int missCheck = 0;

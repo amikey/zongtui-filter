@@ -1,16 +1,16 @@
 /**
  * Project Name:filter
  * File Name:RabinHashFilterImpl.java
- * Package Name:com.zongtui.filter.robin
+ * Package Name:com.zongtui.filter.rabin
  * Date:2015-4-9上午10:31:10
  * Copyright (c) 2015, 众推项目组版权所有.
  *
  */
-package com.zongtui.filter.robin;
+package com.zongtui.filter.rabin;
 
 import com.zongtui.filter.IFilter;
 import com.zongtui.filter.Page;
-import com.zongtui.filter.robin.utils.RabinHashFunction32;
+import com.zongtui.filter.rabin.utils.RabinHashFunction32;
 
 import java.util.HashSet;
 
@@ -30,7 +30,7 @@ public class RabinHashFilterImpl implements IFilter {
 
     public RabinHashFilterImpl(int count, int rabinCount) {
         set = new HashSet<Integer>(count);
-        rabinCount = rabinCount;
+        this.rabinCount = rabinCount;
     }
 
     /**

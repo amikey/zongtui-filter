@@ -1,4 +1,4 @@
-package com.zongtui.filter.robin.utils;
+package com.zongtui.filter.rabin.utils;
 
 /**
  * Created by Administrator on 2015/4/9.
