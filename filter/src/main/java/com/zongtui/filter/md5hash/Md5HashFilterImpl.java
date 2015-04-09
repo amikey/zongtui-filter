@@ -11,9 +11,8 @@ package com.zongtui.filter.md5hash;
 
 import com.zongtui.filter.IFilter;
 import com.zongtui.filter.Page;
-import com.zongtui.filter.rabin.utils.MD5Utils;
+import com.zongtui.filter.utils.MD5Utils;
 
-import java.security.MessageDigest;
 import java.util.HashSet;
 
 /**

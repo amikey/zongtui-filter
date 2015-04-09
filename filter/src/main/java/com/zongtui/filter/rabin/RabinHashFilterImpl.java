@@ -10,7 +10,7 @@ package com.zongtui.filter.rabin;
 
 import com.zongtui.filter.IFilter;
 import com.zongtui.filter.Page;
-import com.zongtui.filter.rabin.utils.RabinHashFunction32;
+import com.zongtui.filter.utils.RabinHashFunction32;
 
 import java.util.HashSet;
 

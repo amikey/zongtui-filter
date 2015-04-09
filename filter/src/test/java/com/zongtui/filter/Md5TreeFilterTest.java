@@ -29,7 +29,7 @@ public class Md5TreeFilterTest {
     @Ignore("long time")
     @Test
     public void testMemoryCost() throws Exception {
-        int times = 1000000;
+        int times = 100000;
         IFilter filter = new Md5TreeFilterImpl();
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
@@ -43,8 +43,8 @@ public class Md5TreeFilterTest {
     @Ignore("long time")
     @Test
     public void testHitCorrect() throws Exception {
-        int times = 1000000;
-        IFilter filter = new Md5TreeFilterImpl();
+        int times = 100000;
+        Md5TreeFilterImpl filter = new Md5TreeFilterImpl();
         int right = 0;
         int wrong = 0;
         int missCheck = 0;
@@ -60,7 +60,6 @@ public class Md5TreeFilterTest {
                 missCheck++;
             }
         }
-
         System.out.println("正确数 : " + right + " 错误数: " + wrong + " miss数: " + missCheck);
     }
 }

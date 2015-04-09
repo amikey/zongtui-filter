@@ -1,4 +1,4 @@
-package com.zongtui.filter.rabin.utils;
+package com.zongtui.filter.utils;
 
 import java.security.MessageDigest;
 
