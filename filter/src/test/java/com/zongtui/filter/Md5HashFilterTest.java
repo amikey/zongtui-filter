@@ -1,18 +1,17 @@
 package com.zongtui.filter;
 
 import com.zongtui.filter.md5hash.Md5HashFilterImpl;
-import com.zongtui.filter.md5tree.Md5TreeFilterImpl;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Created by Administrator on 2015/4/8.
  */
-public class Md5TreeFilterTest {
+public class Md5HashFilterTest {
 
     @Test
     public void testFilter() throws Exception {
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5HashFilterImpl(1000000);
         Page page1 = new Page("a", null);
         Page page2 = new Page("b", null);
         float value = filter.Similar(page1);
@@ -29,8 +28,8 @@ public class Md5TreeFilterTest {
     @Ignore("long time")
     @Test
     public void testMemoryCost() throws Exception {
-        int times = 1000000;
-        IFilter filter = new Md5TreeFilterImpl();
+        int times = 100000;
+        IFilter filter = new Md5HashFilterImpl(100000);
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
@@ -44,7 +43,7 @@ public class Md5TreeFilterTest {
     @Test
     public void testHitCorrect() throws Exception {
         int times = 1000000;
-        IFilter filter = new Md5TreeFilterImpl();
+        IFilter filter = new Md5HashFilterImpl(1000000);
         int right = 0;
         int wrong = 0;
         int missCheck = 0;

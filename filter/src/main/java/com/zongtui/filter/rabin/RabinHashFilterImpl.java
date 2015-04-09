@@ -41,7 +41,6 @@ public class RabinHashFilterImpl implements IFilter {
      * @author Jason
      * @since JDK 1.7
      */
-    @Override
     public float Similar(Page page) {
         float value = 1;
         RabinHashFunction32 rabin = new RabinHashFunction32(rabinCount);
