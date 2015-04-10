@@ -1,6 +1,5 @@
 package com.zongtui.filter;
 
-import com.zongtui.filter.md5hash.Md5HashFilterImpl;
 import com.zongtui.filter.md5tree.Md5TreeFilterImpl;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -15,13 +14,13 @@ public class Md5TreeFilterTest {
         IFilter filter = new Md5TreeFilterImpl();
         Page page1 = new Page("a", null);
         Page page2 = new Page("b", null);
-        float value = filter.Similar(page1);
+        float value = filter.similar(page1);
         System.out.println(value);
-        value = filter.Similar(page1);
+        value = filter.similar(page1);
         System.out.println(value);
-        value = filter.Similar(page2);
+        value = filter.similar(page2);
         System.out.println(value);
-        value = filter.Similar(page2);
+        value = filter.similar(page2);
         System.out.println(value);
 
     }
@@ -34,7 +33,7 @@ public class Md5TreeFilterTest {
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
-            filter.Similar(new Page(i + "www.baidu.com/dididiidd/dadadaadadad", null));
+            filter.similar(new Page(i + "www.baidu.com/dididiidd/dadadaadadad", null));
         }
         System.out.println("耗时为：" + (System.currentTimeMillis() - time)+"毫秒");
         System.out.println("内存消耗为：:" + (Runtime.getRuntime().freeMemory()-freeMemory)/(1024*1024)+"M");
@@ -49,13 +48,13 @@ public class Md5TreeFilterTest {
         int wrong = 0;
         int missCheck = 0;
         for (int i = 0; i < times; i++) {
-            float similar =  filter.Similar(new Page(i + "", null));
+            float similar =  filter.similar(new Page(i + "", null));
             if (similar > 0) {
                 wrong++;
             } else {
                 right++;
             }
-            similar = filter.Similar(new Page(i + "", null));
+            similar = filter.similar(new Page(i + "", null));
             if (similar < 1) {
                 missCheck++;
             }

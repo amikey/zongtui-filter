@@ -65,7 +65,7 @@ public class BloomFilterImpl implements IFilter {
 
 
     /**
-     * Similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
+     * similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
      *
      * @param page
      * @return
@@ -73,7 +73,7 @@ public class BloomFilterImpl implements IFilter {
      * @since JDK 1.7
      */
     @Override
-    public float Similar(Page page) {
+    public float similar(Page page) {
         float similarValue = 1;
         boolean isDuplicate = bloomFilter.mightContain(page.getUrl());
         if (!isDuplicate) {

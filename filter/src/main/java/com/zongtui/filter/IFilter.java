@@ -20,14 +20,14 @@ package com.zongtui.filter;
 public interface IFilter {
 	
 	/**
-	 * Similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
+	 * similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
 	 *
 	 * @author feng
 	 * @param page
 	 * @return
 	 * @since JDK 1.7
 	 */
-	float Similar(Page page);
+	float similar(Page page);
 
 
 

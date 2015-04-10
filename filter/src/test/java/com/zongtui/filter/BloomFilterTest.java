@@ -14,13 +14,13 @@ public class BloomFilterTest {
         IFilter filter = new BloomFilterImpl(10);
         Page page1 = new Page("a", null);
         Page page2 = new Page("b", null);
-        float value = filter.Similar(page1);
+        float value = filter.similar(page1);
         System.out.println(value);
-        value = filter.Similar(page1);
+        value = filter.similar(page1);
         System.out.println(value);
-        value = filter.Similar(page2);
+        value = filter.similar(page2);
         System.out.println(value);
-        value = filter.Similar(page2);
+        value = filter.similar(page2);
         System.out.println(value);
 
     }
@@ -33,7 +33,7 @@ public class BloomFilterTest {
         long freeMemory = Runtime.getRuntime().freeMemory();
         long time = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
-            filter.Similar(new Page(i + "", null));
+            filter.similar(new Page(i + "", null));
         }
         System.out.println("耗时为：" + (System.currentTimeMillis() - time)+"毫秒");
         System.out.println("内存消耗为：:" + (Runtime.getRuntime().freeMemory()-freeMemory)/(1024*1024)+"M");
@@ -48,13 +48,13 @@ public class BloomFilterTest {
         int wrong = 0;
         int missCheck = 0;
         for (int i = 0; i < times; i++) {
-            float similar = filter.Similar(new Page(i + "", null));
+            float similar = filter.similar(new Page(i + "", null));
             if (similar > 0) {
                 wrong++;
             } else {
                 right++;
             }
-            similar = filter.Similar(new Page(i + "", null));
+            similar = filter.similar(new Page(i + "", null));
             if (similar < 1) {
                 missCheck++;
             }

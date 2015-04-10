@@ -29,7 +29,7 @@ public class Md5TreeFilterImpl implements IFilter {
         return tree;
     }
 
-    public float Similar(Page page) {
+    public float similar(Page page) {
         float similarValue = 1;
         String url = MD5Utils.MD5(page.getUrl());
 

@@ -34,14 +34,14 @@ public class RabinHashFilterImpl implements IFilter {
     }
 
     /**
-     * Similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
+     * similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
      *
      * @param page
      * @return
      * @author Jason
      * @since JDK 1.7
      */
-    public float Similar(Page page) {
+    public float similar(Page page) {
         float value = 1;
         RabinHashFunction32 rabin = new RabinHashFunction32(rabinCount);
         int rabinCode = rabin.hash(page.getUrl());

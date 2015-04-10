@@ -34,14 +34,14 @@ public class Md5HashFilterImpl implements IFilter {
     }
 
     /**
-     * Similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
+     * similar:判断内容的相似性，为1表示已经存在，为0表示不存在，为浮点数则判断相似度的值. <br/>
      *
      * @param page
      * @return
      * @author feng
      * @since JDK 1.7
      */
-    public float Similar(Page page) {
+    public float similar(Page page) {
         float similarValue = 1;
         String url = MD5Utils.MD5(page.getUrl());
 
