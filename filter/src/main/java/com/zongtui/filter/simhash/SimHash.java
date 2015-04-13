@@ -2,7 +2,6 @@ package com.zongtui.filter.simhash;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -48,8 +47,6 @@ public class SimHash {
 	private String tokens;
 
 	private BigInteger intSimHash;
-
-	private String strSimHash;
 
 	private int hashbits = 64;
 
@@ -113,18 +110,12 @@ public class SimHash {
 		}
 		// 生成密识串
 		BigInteger fingerprint = new BigInteger("0");
-		StringBuffer simHashBuffer = new StringBuffer();
 		for (int i = 0; i < this.hashbits; i++) {
 			// 4、最后对数组进行判断,大于0的记为1,小于等于0的记为0,得到一个 64bit 的数字指纹/签名.
 			if (v[i] >= 0) {
 				fingerprint = fingerprint.add(new BigInteger("1").shiftLeft(i));
-				simHashBuffer.append("1");
-			} else {
-				simHashBuffer.append("0");
 			}
 		}
-		this.strSimHash = simHashBuffer.toString();
-		logger.info("{} length {}", this.strSimHash, this.strSimHash.length());
 
 		return fingerprint;
 	}
