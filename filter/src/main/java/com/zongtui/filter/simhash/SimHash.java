@@ -11,6 +11,8 @@ import org.nlpcn.commons.lang.tire.GetWord;
 import org.nlpcn.commons.lang.tire.domain.Forest;
 import org.nlpcn.commons.lang.tire.library.Library;
 import org.nlpcn.commons.lang.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * SimHash类，用于计算文本的相似度信息
@@ -24,6 +26,13 @@ import org.nlpcn.commons.lang.util.StringUtil;
  * @since JDK 1.7
  */
 public class SimHash {
+	/**
+	 * 日志记录
+	 */
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	/**
+	 * 中文词典对象
+	 */
 	private static Forest forest = null;
 	/**
 	 * 加载词典信息
@@ -54,8 +63,6 @@ public class SimHash {
 		this.hashbits = hashbits;
 		this.intSimHash = this.simHash();
 	}
-
-	private HashMap<String, Integer> wordMap = new HashMap<String, Integer>();
 
 	public BigInteger simHash() {
 		// 定义特征向量/数组
@@ -117,8 +124,7 @@ public class SimHash {
 			}
 		}
 		this.strSimHash = simHashBuffer.toString();
-		System.out.println(this.strSimHash + " length "
-				+ this.strSimHash.length());
+		logger.info("{} length {}", this.strSimHash, this.strSimHash.length());
 
 		return fingerprint;
 	}
@@ -192,7 +198,7 @@ public class SimHash {
 			if ((i + 1) % numEach == 0) {
 				// 将二进制转为BigInteger
 				BigInteger eachValue = new BigInteger(buffer.toString(), 2);
-				System.out.println("----" + eachValue);
+				logger.info("----{}", eachValue);
 				buffer.delete(0, buffer.length());
 				characters.add(eachValue);
 			}
