@@ -18,6 +18,10 @@
 			<id>mvn-repo</id>
 			<url>http://maven.nlpcn.org/</url>
 		</repository>
+		<repository>
+            <id>ansj-repo</id>
+            <url>http://maven.ansj.org/</url>
+        </repository>
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -43,6 +47,12 @@
 			<groupId>org.nlpcn</groupId>
 			<artifactId>nlp-lang</artifactId>
 			<version>0.3</version>
+		</dependency>
+		<!-- stop word -->
+		<dependency>
+			<groupId>org.ansj</groupId>
+			<artifactId>ansj_seg</artifactId>
+			<version>2.0.8</version>
 		</dependency>
 		<!-- store tools -->
 		<dependency>
