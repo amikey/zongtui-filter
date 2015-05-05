@@ -1,0 +1,18 @@
+﻿Like most computing terms, "concurrency" is tricky to pin down. Informally, a concurrent program is
+one that does more than one thing at a time. For example, a web browser may be simultaneously
+performing an HTTP GET request to get an HTML page, playing an audio clip, displaying the number
+of bytes received of some image, and engaging in an advisory dialog with a user. However, this
+simultaneity is sometimes an illusion. On some computer systems these different activities might
+indeed be performed by different CPUs. But on other systems they are all performed by a single timeshared
+CPU that switches among different activities quickly enough that they appear to be
+simultaneous, or at least nondeterministically interleaved, to human observers.
+A more precise, though not very interesting definition of concurrent programming can be phrased
+operationally: A Java virtual machine and its underlying operating system (OS) provide mappings
+from apparent simultaneity to physical parallelism (via multiple CPUs), or lack thereof, by allowing
+independent activities to proceed in parallel when possible and desirable, and otherwise by timesharing.
+Concurrent programming consists of using programming constructs that are mapped in this
+way. Concurrent programming in the Java programming language entails using Java programming
+language constructs to this effect, as opposed to system-level constructs that are used to create new
+operating system processes. By convention, this notion is further restricted to constructs affecting a
+single JVM, as opposed to distributed programming, for example using remote method invocation
+(RMI), that involves multiple JVMs residing on multiple computer systems.
