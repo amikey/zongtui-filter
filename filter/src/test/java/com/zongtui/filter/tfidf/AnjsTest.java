@@ -33,10 +33,10 @@ public class AnjsTest {
 	@Test
 	public void test1() {
 		try {
-			String filePath = "./test-utf8.TXT";
+			String filePath = "D:\\data\\C000008\\10.txt";
 			String tt = new String();
 			BufferedReader in = new BufferedReader(new InputStreamReader(
-					new FileInputStream(filePath), "UTF8"));
+					new FileInputStream(filePath), "GBK"));
 			String str;
 			while ((str = in.readLine()) != null) {
 				tt += str;
