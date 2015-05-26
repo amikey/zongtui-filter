@@ -31,7 +31,7 @@ public interface KeywordExtractService {
 	 * @return 排序好的关键字列表
 	 * @throws ExtractException
 	 */
-	public List<Keyword> extractContent (String content, String algorithmType, String extractNum) throws ExtractException;
+	public List<String> extractContent (String content, String algorithmType, String extractNum) throws ExtractException;
 
 	
 }
