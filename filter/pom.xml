@@ -67,5 +67,11 @@
 			<version>5.1.30</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.hankcs</groupId>
+		    <artifactId>hanlp</artifactId>
+		    <version>portable-1.2.2</version>
+		</dependency>
 	</dependencies>
 </project>
