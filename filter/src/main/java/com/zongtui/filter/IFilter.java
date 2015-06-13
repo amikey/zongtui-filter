@@ -11,7 +11,8 @@ package com.zongtui.filter;
 /**
  * ClassName: IFilter <br/>
  * Function: 过滤器定义接口 <br/>
- * date: 2015-4-8 下午3:04:10 <br/>
+ * date: 2015-4-8 下午3:04:10 <br/> 
+ * 
  *
  * @author feng
  * @version 
