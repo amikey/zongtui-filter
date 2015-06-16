@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<INFO> 
+  <!-- 130 Mongo数据库连接 -->  
+  <db_ip>192.168.184.130</db_ip>  
+  <db_port>27017</db_port>  
+  <db_name>nutch</db_name>  
+</INFO>
