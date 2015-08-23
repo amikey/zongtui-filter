@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri Aug 21 23:11:24 CST 2015
+onejar.license.required=true
+manifest.classpath=TurnHtmlRpcServer
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=RpcServer010.jar
+manifest.mergeall=true
+manifest.mainclass=com.gesoft.rpc.RpcServer
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|apache-solr-solrj-4.0.0-BETA.jar>;<jar|commons-dbcp-1.4.jar>;<jar|commons-httpclient-3.0-rc3.jar>;<jar|commons-pool-1.6.jar>;<jar|GeMongo.jar>;<jar|gson-1.7.1.jar>;<jar|htmlparser.jar>;<jar|mail.jar>;<jar|selenium-server-standalone-2.24.1.jar>
+includes=

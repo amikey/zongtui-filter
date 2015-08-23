@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<info> 
+  <!--主程序端口号-->  
+  <Port>8101</Port>  
+  <!--客户端程序端口号-->  
+  <!--<IPhost>182.254.246.90</IPhost>  -->  
+  <IPhost>127.0.0.1</IPhost>  
+  <clientPort>8101</clientPort>  
+  <!--最先运行关键字如果为空则不处理-->  
+  <keyword/>  
+  <!--全部运行的次数-->  
+  <NO>499</NO>  
+  <!--当前运行第几个-->  
+  <NEWNO>110</NEWNO>  
+  <!--0：百度  1：搜狗-->  
+  <NONUM>0</NONUM> 
+</info>
