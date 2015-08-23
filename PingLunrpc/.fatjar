@@ -1,12 +1,12 @@
 #Fat Jar Configuration File
-#Fri Aug 21 23:11:24 CST 2015
+#Sun Aug 23 23:03:15 CST 2015
 onejar.license.required=true
 manifest.classpath=TurnHtmlRpcServer
 manifest.removesigners=true
 onejar.checkbox=false
-jarname=RpcServer010.jar
+jarname=RpcClient.jar
 manifest.mergeall=true
-manifest.mainclass=com.gesoft.rpc.RpcServer
+manifest.mainclass=com.gesoft.admin.admin
 manifest.file=<createnew>
 jarname.isextern=false
 onejar.expand=

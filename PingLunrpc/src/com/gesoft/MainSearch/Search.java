@@ -829,6 +829,7 @@ public class Search {
 	
 	/**
 	 * 2015年8月16日23:24:30
+	 * 2015年8月23日23:01:04#进行敲击10次
 	 * @param AllKeyWord
 	 * @return
 	 */
@@ -873,7 +874,7 @@ public class Search {
 		//
 		// }
 
-//		for (int i = 4; i <= StrKeyword.length(); i++) {
+		for (int i = 0; i <= 10; i++) {
 			String keywordss = "";
 //			if (i == 4 || i == 10 || i == StrKeyword.length()) {
 
@@ -898,7 +899,7 @@ public class Search {
 				}
 
 //			}
-//		}
+		}
 
 		// 888888888888888888888888888888888888888
 
