@@ -1,5 +1,6 @@
 package com.gesoft.rpc;
 
+import com.gesoft.MainSearch.staticNumPag;
 import com.gesoft.MainSearch.staticNumint;
 import com.gesoft.WanfangBykeyWordMain.WanfangBykeyWordMain;
 import com.gesoft.config.ConfigManager;
@@ -31,7 +32,7 @@ public class RpcInterface {
 	
 	public String Keyword(String ip,String Keyword,String intNum){
 //		System.out.println("----------本次运行第"+ConfigManager.getInstance().getConfigValue("NO")+",其中的第"+ConfigManager.getInstance().getConfigValue("NEWNO")+"------------");
-		System.out.println("----------本次运行第"+ConfigManager.getInstance().getConfigValue("NO")+",其中的第"+staticNumint.readintNum()+"------------");
+		System.out.println("----------本次运行第"+staticNumPag.readintNum()+",其中的第"+staticNumint.readintNum()+"------------");
 		System.out.println("用户ip:"+ip+"，调用方法名称Keyword");	
 		String returnstringkey="";
 		try {

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 
+import com.gesoft.MainSearch.staticNumPag;
 import com.gesoft.MainSearch.staticNumint;
 import com.gesoft.config.ConfigManager;
 
@@ -56,8 +57,10 @@ public class WanfangBykeyWordMain  {
 		String stringbb="";
 		if (keyList.size()<numintn) {
 			numintn=0;
-			int nnum=Integer.valueOf(ConfigManager.getInstance().getConfigValue("NO"));
-			ConfigManager.getInstance().setConfigValue("NO",""+(nnum+1));
+//			int nnum=Integer.valueOf(ConfigManager.getInstance().getConfigValue("NO"));
+//			ConfigManager.getInstance().setConfigValue("NO",""+(nnum+1));
+			int nnum=staticNumPag.readintNum();
+			staticNumPag.intNum(nnum+1);
 		}
 		 for (int i = numintn; i < intnum+numintn; i++) {
 			 try {
