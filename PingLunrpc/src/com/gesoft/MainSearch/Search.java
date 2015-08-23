@@ -1050,6 +1050,230 @@ public class Search {
 
 		return "";
 	}
+	
+	/**
+	 * 2015年8月23日23:01:04#进行敲击10次
+	 *  显示2015年8月23日23:46:19
+	 * @param AllKeyWord
+	 * @return
+	 */
+	public static String xiaoUrlbaidu4haoshixianshi(String StrKeyword, String numString)
+			throws UnsupportedEncodingException {
+		/*
+		 * 打开首页 点击下一页 随机打开一个链接 停顿几秒吧
+		 */
+		Search bb = new Search();
+		String Keyword = bb.URLEncoderURL(StrKeyword);
+		// Keyword = StrKeyword;
+		// 首页进行数据的采集
+		DownloadUtil downtimeone = new DownloadUtil();
+
+		System.out.println("关键字为：" + StrKeyword);
+		// System.out.println("+++++++++++++++"+StrKeyword+"##########"+StrKeyword.substring(StrKeyword.length()-1,StrKeyword.length()));
+		// StrKeyword=StrKeyword+StrKeyword.substring(StrKeyword.length()-1,StrKeyword.length());
+//		System.out.println("打开手机百度输入页:http://m.baidu.com");
+//		downtimeone.getHtml("http://m.baidu.com", 5000, "utf-8", null, null);
+		// for (int i = 1; i <= StrKeyword.length(); i++) {
+		// String keywordss = "";
+		// keywordss = StrKeyword.substring(0, i).trim();
+		// String stringurlword = "http://m.baidu.com/pu=sz%401321_480/s?word="
+		// + keywordss + "&sa=ib&ts=1404682" + numString + "&pn=0";
+		// downtimeone.getHtml(stringurlword, 5000, "utf-8", null, null);
+		// //
+		// http://m.baidu.com/ssid=0/from=0/bd_page_type=1/uid=0/baiduid=C56AD478D216752A535DAD9A230BDDB9/s?word=333&uc_param_str=upssntdnvelami&sa=ib&st_1=111041&st_2=102041&pu=sz%40224_220%2Cta%40middle___3_537&idx=20000&tn_1=middle&tn_2=middle&ct_2=%E6%90%9CWap
+		// stringurlword =
+		// "http://m.baidu.com/ssid=0/from=0/bd_page_type=1/uid=0/baiduid=C56AD478D216752A535DAD9A230BDDB9/s?word="
+		// + keywordss
+		// +
+		// "&uc_param_str=upssntdnvelami&sa=ib&st_1=111041&st_2=102041&pu=sz%40224_220%2Cta%40middle___3_537&idx=20000&tn_1=middle&tn_2=middle&ct_2=%E6%90%9CWap";
+		// downtimeone.getHtml(stringurlword, 5000, "utf-8", null, null);
+		// System.out.println("输入关键字依次为" + keywordss);
+		// System.out.println("等待0.1秒");
+		// try {
+		// Thread.sleep(100);
+		// } catch (InterruptedException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		//
+		// }
+
+		for (int i = 0; i <= 10; i++) {
+			String keywordss = "";
+//			if (i == 4 || i == 10 || i == StrKeyword.length()) {
+
+				keywordss = StrKeyword.substring(0, StrKeyword.length()).trim();
+				System.out.println("当前运行第" +i + "次");
+
+				String stringurlword = "http://m.baidu.com/pu=sz%401321_480/s?word="
+						+ keywordss + "&sa=ib&ts=1404682" + numString + "&pn=0";
+				downtimeone.getHtml(stringurlword, 5000, "utf-8", null, null);
+				// http://m.baidu.com/ssid=0/from=0/bd_page_type=1/uid=0/baiduid=C56AD478D216752A535DAD9A230BDDB9/s?word=333&uc_param_str=upssntdnvelami&sa=ib&st_1=111041&st_2=102041&pu=sz%40224_220%2Cta%40middle___3_537&idx=20000&tn_1=middle&tn_2=middle&ct_2=%E6%90%9CWap
+				stringurlword = "http://m.baidu.com/ssid=0/from=0/bd_page_type=1/uid=0/baiduid=C56AD478D216752A535DAD9A230BDDB9/s?word="
+						+ keywordss
+						+ "&uc_param_str=upssntdnvelami&sa=ib&st_1=111041&st_2=102041&pu=sz%40224_220%2Cta%40middle___3_537&idx=20000&tn_1=middle&tn_2=middle&ct_2=%E6%90%9CWap";
+				downtimeone.getHtml(stringurlword, 5000, "utf-8", null, null);
+//				System.out.println("输入关键字依次为" + stringurlword);
+				System.out.println("等待0.1秒");
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+//			}
+		}
+
+		// 888888888888888888888888888888888888888
+
+		String strUrlAddone = "http://m.baidu.com/pu=sz%401321_480/s?word="
+				+ Keyword + "&sa=td";
+		// // String
+		// strUrlAddone="http://www.sogou.com/web?query="+Keyword+"&sut=5962&lkt=0%2C0%2C0&sst0=1437273545415&page=1&ie=utf8&p=40040100&dp=1&w=01019900&dr=1";
+		// try {
+		System.out.println("起刷页" + strUrlAddone);
+		String strHtml = downtimeone.getHtml(strUrlAddone, 5000, "utf-8", null,
+				null);
+		 System.out.println(""+strUrlAddone);
+		// try {
+		// Thread.sleep(5000);
+		// } catch (InterruptedException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		Search.seleepTime(5);
+		String stringstr = "";
+		stringstr = getTagInfo(strHtml, "<a class=\"result_title\" href=\"",
+				"\"");
+		// stringstr=getTagInfo(strHtml,"target=\"_blank\" href=\"", "\"");
+		strUrlAddone = "http://m.baidu.com" + stringstr.replaceAll("amp;", "");
+		// strUrlAddone=stringstr.replaceAll("amp;", "");
+		System.out.println("随机点击" + strUrlAddone);
+		String htmlStr = downtimeone.getHtml(strUrlAddone, 5000, "utf-8", null,
+				null);
+		// System.out.println("等待5秒");
+		// try {
+		// Thread.sleep(5000);
+		// } catch (InterruptedException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		Search.seleepTime(5);
+		String html = htmlStr;
+		Document doc = Jsoup.parse(html);
+		Elements imports = doc.select("link[href]");
+		if (imports.size() != 0) {
+			Element urlone = imports
+					.get((int) (imports.size() * Math.random()));
+			String shuijidianjiurl = urlone.attr("abs:href");
+			htmlStr = downtimeone.getHtml(shuijidianjiurl + "", 5000, "utf-8",
+					null, null);
+			System.out.println("随机点击" + shuijidianjiurl);
+			// System.out.println("等待5秒");
+			// try {
+			// Thread.sleep(5000);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+			Search.seleepTime(5);
+			html = htmlStr;
+			doc = Jsoup.parse(html);
+			imports = doc.select("link[href]");
+			urlone = imports.get((int) (imports.size() * Math.random()));
+			urlone.attr("abs:href");
+			shuijidianjiurl = urlone.attr("abs:href");
+			;
+			htmlStr = downtimeone.getHtml(shuijidianjiurl + "", 5000, "utf-8",
+					null, null);
+			System.out.println("随机点击" + shuijidianjiurl);
+			// System.out.println("等待5秒");
+			// try {
+			// Thread.sleep(1000);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+			Search.seleepTime(5);
+		} else {
+//			System.out.println("进入详细页出现后没有发现随机点击链接");
+		}
+
+//		System.out.println("起刷页 " + strUrlAddone);
+		strUrlAddone = "http://m.baidu.com/pu=sz%401321_480/s?word=" + Keyword
+				+ "&sa=td&pn=10";
+//		System.out.println("现在进入第二页的地址：" + strUrlAddone);
+		strHtml = downtimeone.getHtml(strUrlAddone, 5000, "utf-8", null, null);
+		// System.out.println("等待5秒");
+		// try {
+		// Thread.sleep(5000);
+		// } catch (InterruptedException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		Search.seleepTime(5);
+		stringstr = "";
+		stringstr = getTagInfo(strHtml, "<a class=\"result_title\" href=\"",
+				"\"");
+		// stringstr=getTagInfo(strHtml,"target=\"_blank\" href=\"", "\"");
+		strUrlAddone = "http://m.baidu.com" + stringstr.replaceAll("amp;", "");
+		// strUrlAddone=stringstr.replaceAll("amp;", "");
+		System.out.println("随机点击" + strUrlAddone);
+		htmlStr = downtimeone.getHtml(strUrlAddone, 5000, "utf-8", null, null);
+		// System.out.println("等待0.5秒");
+		// try {
+		// Thread.sleep(500);
+		// } catch (InterruptedException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		Search.seleepTime(5);
+		html = htmlStr;
+		doc = Jsoup.parse(html);
+		imports = doc.select("link[href]");
+		if (imports.size() > 0) {
+			Element urlone = imports
+					.get((int) (imports.size() * Math.random()));
+			urlone.attr("abs:href");
+			String shuijidianjiurl = urlone.attr("abs:href");
+			;
+			htmlStr = downtimeone.getHtml(shuijidianjiurl + "", 5000, "utf-8",
+					null, null);
+			System.out.println("随机点击" + shuijidianjiurl);
+			// System.out.println("等待0.5秒");
+			// try {
+			// Thread.sleep(500);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+			Search.seleepTime(5);
+
+			html = htmlStr;
+			doc = Jsoup.parse(html);
+			imports = doc.select("link[href]");
+			urlone = imports.get((int) (imports.size() * Math.random()));
+			urlone.attr("abs:href");
+			shuijidianjiurl = urlone.attr("abs:href");
+			;
+			downtimeone
+					.getHtml(shuijidianjiurl + "", 5000, "utf-8", null, null);
+			System.out.println("随机点击" + shuijidianjiurl);
+//			System.out.println("等待0.5秒");
+			// try {
+			// Thread.sleep(500);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+			Search.seleepTime(5);
+		} else {
+//			System.out.println("第二页进入详细页出现后没有发现随机点击链接");
+		}
+
+		return "";
+	}
 
 	public static String Analytical(String AllKeyWord) {
 
@@ -1069,7 +1293,7 @@ public class Search {
 		t = 2;
 		try {
 			// System.out.println("等待1-2秒,当前等待"+t+"秒");
-//			System.out.println("等待2秒,等待" + t + "秒");
+			System.out.println("等待2秒,等待" + t + "秒");
 			Thread.sleep(t * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
